@@ -3,13 +3,16 @@ import {getAMPConsent} from './ampConsent.js';
 
 export const ENDPOINT_RUBICON = 'https://prebid-server.rubiconproject.com/cookie_sync';
 export const ENDPOINT_APPNEXUS = 'https://prebid.adnxs.com/pbs/v1/cookie_sync';
+export const ENDPOINT_MILE = 'https://pbs.atmtd.com/cookie_sync';
+
 export const NO_LIMIT = 99999;
 export const DEFAULT_LIMIT = 10;
 export const DEFAULT_TIMEOUT = 10000;
 
 const DEFAULT_ENDPOINTS = {
     rubicon: ENDPOINT_RUBICON,
-    appnexus: ENDPOINT_APPNEXUS
+    appnexus: ENDPOINT_APPNEXUS,
+    mile: ENDPOINT_MILE
 };
 
 export function parseParams(params = new URLSearchParams(window.location.search)) {
@@ -37,11 +40,11 @@ function booleanInt(value) {
 }
 
 function getEndpoint(endpoint, log) {
-    endpoint = endpoint || 'appnexus'; // default is appnexus for backwards compat
+    endpoint = endpoint || 'mile';
     if (DEFAULT_ENDPOINTS.hasOwnProperty(endpoint)) endpoint = DEFAULT_ENDPOINTS[endpoint];
     if (!isValidURL(endpoint)) {
-        log(`Invalid endpoint: ${endpoint}. Defaulting to appnexus.`);
-        endpoint = ENDPOINT_APPNEXUS;
+        log(`Invalid endpoint: ${endpoint}. Defaulting to mile.`);
+        endpoint = ENDPOINT_MILE;
     }
     return endpoint;
 }

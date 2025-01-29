@@ -3,6 +3,7 @@ import {
     DEFAULT_TIMEOUT,
     ENDPOINT_APPNEXUS,
     ENDPOINT_RUBICON,
+    ENDPOINT_MILE,
     NO_LIMIT,
     parseParams,
     resolveConsentParams
@@ -68,16 +69,20 @@ describe('Query parameters', () => {
                     from: 'appnexus',
                     to: ENDPOINT_APPNEXUS
                 },
+                'mile': {
+                    from: 'mile',
+                    to: ENDPOINT_MILE
+                },
                 'custom': {
                     from: 'https%3A%2F%2Fwww.example.com%2Fcookie_sync',
                     to: 'https://www.example.com/cookie_sync'
                 },
                 'undefined': {
-                    to: ENDPOINT_APPNEXUS,
+                    to: ENDPOINT_MILE,
                 },
                 'invalid': {
                     from: 'not-an-url',
-                    to: ENDPOINT_APPNEXUS
+                    to: ENDPOINT_MILE
                 }
             }
         },
