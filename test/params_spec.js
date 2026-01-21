@@ -194,6 +194,7 @@ describe('Query parameters', () => {
                 }
             }
         },
+        account: simpleStringParam('account'),
 
     }).forEach(([outParam, {param, cases}]) => {
         describe(`"${outParam}"`, () => {
